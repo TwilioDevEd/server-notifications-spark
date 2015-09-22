@@ -1,3 +1,7 @@
+import models.Administrator;
+import utils.Client;
+import utils.Repository;
+
 import static spark.Spark.exception;
 import static spark.Spark.get;
 
@@ -13,6 +17,11 @@ public class App {
                     "Go to: http://newrelic.com for more details. " +
                     "Image URL: http://goo.gl/ObTXdX",
                     e.getMessage());
+
+            Administrator[] administrators = new Repository().getAdministrators();
+            for(Administrator administrator : administrators) {
+                new Client().sendMessage(administrator.getPhoneNumber(), message);
+            }
 
             response.body("Something unexpected happened. Keep calm, administrators were notified.");
         });
