@@ -91,14 +91,14 @@
       * [JSON](http://www.json.org/)
 
   .step(data-file='src/main/java/utils/Client.java',
-  data-highlight='15-20,27-44')
+  data-highlight='15-20,27-45')
     :markdown
       ## Sending a text message
 
       There are the three parameters needed to [send an
       SMS](https://www.twilio.com/docs/quickstart/java/sms/sending-via-rest)
       using the [Twilio REST API](https://www.twilio.com/docs/api/rest):
-      `:from`, `:to`, and `:body`. After the message is sent, we print out the
+      `From`, `To`, `Body`, and `MediaUrl`. After the message is sent, we print out the
       phone number we're texting. [US phone
       numbers](https://www.twilio.com/help/faq/sms/is-mms-supported-for-all-carriers-in-us-and-canada)
       can also send an image with the message.
