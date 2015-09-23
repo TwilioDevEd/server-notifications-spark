@@ -24,8 +24,8 @@ public class Client {
         this.client = client;
     }
 
-    public void sendMessage(String to, String message) {
-        List<NameValuePair> params = getParams(to, message);
+    public void sendMessage(String to, String message, String mediaUrl) {
+        List<NameValuePair> params = getParams(to, message, mediaUrl);
 
         try {
             this.client.getAccount().getMessageFactory().create(params);
@@ -34,11 +34,12 @@ public class Client {
         }
     }
 
-    private List<NameValuePair> getParams(String to, String message) {
+    private List<NameValuePair> getParams(String to, String message, String mediaUrl) {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("Body", message));
         params.add(new BasicNameValuePair("To", to));
         params.add(new BasicNameValuePair("From", this.credentials.getPhoneNumber()));
+        params.add(new BasicNameValuePair("MediaUrl", mediaUrl));
 
         return params;
     }

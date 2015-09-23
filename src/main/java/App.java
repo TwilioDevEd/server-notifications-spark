@@ -18,9 +18,11 @@ public class App {
                     "Image URL: http://goo.gl/ObTXdX",
                     e.getMessage());
 
+            String mediaUrl = "http://goo.gl/ObTXdX";
+
             Administrator[] administrators = new Repository().getAdministrators();
             for(Administrator administrator : administrators) {
-                new Client().sendMessage(administrator.getPhoneNumber(), message);
+                new Client().sendMessage(administrator.getPhoneNumber(), message, mediaUrl);
             }
 
             response.body("Something unexpected happened. Keep calm, administrators were notified.");

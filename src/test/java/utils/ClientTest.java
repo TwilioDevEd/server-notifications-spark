@@ -29,13 +29,14 @@ public class ClientTest {
         when(mockClient.getAccount()).thenReturn(mockAccount);
         when(mockCredentials.getPhoneNumber()).thenReturn("phone-number");
 
-        new Client(mockClient, mockCredentials).sendMessage("to", "message");
+        new Client(mockClient, mockCredentials).sendMessage("to", "message", "media-url");
 
         verify(mockClient).getAccount();
         verify(mockAccount).getMessageFactory();
         params.add(new BasicNameValuePair("Body", "message"));
         params.add(new BasicNameValuePair("To", "to"));
         params.add(new BasicNameValuePair("From", "phone-number"));
+        params.add(new BasicNameValuePair("MediaUrl", "media-url"));
         verify(mockMessageFactory).create(params);
     }
 }
