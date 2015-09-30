@@ -23,12 +23,7 @@ to make this work.</p>
 </ul>
 </div><div data-file="src/main/resources/administrators.json" class="step"><h2 id="list-server-admins">List server admins</h2>
 <p>Create a list of administrators who should be notified if a server error occurs.
-The only requirement we have is a <code>phoneNumber</code>.</p>
-<hr>
-<p><strong>See Also:</strong></p>
-<ul>
-<li><a href="http://www.json.org/">JSON</a></li>
-</ul>
+Each administrator must have a <code>phoneNumber</code>.</p>
 </div><div data-file="src/main/java/utils/Client.java" data-highlight="15-20" class="step"><h2 id="configure-twilio-client">Configure Twilio client</h2>
 <p>In order to send a message we&#39;ll need to initialize the <a href="https://www.twilio.com/docs/java/install">Twilio Java Helper
 Library</a>,
@@ -44,13 +39,7 @@ SDK</a></li>
 </div><div data-file="src/main/java/App.java" data-highlight="14-15" class="step"><h2 id="handle-all-errors">Handle all errors</h2>
 <p>In a Spark application we can handle exeptions of a configured type for
 all routes and filters by using <a href="http://sparkjava.com/documentation.html#exception-mapping">Exception
-Mapping</a></p>
-<hr>
-<p><strong>See Also:</strong></p>
-<ul>
-<li><a href="http://sparkjava.com/documentation.html#exception-mapping">Exception
-Mapping</a></li>
-</ul>
+Mapping</a>.</p>
 </div><div data-file="src/main/java/App.java" data-highlight="16-19" class="step"><h2 id="create-a-custom-alert-message">Create a custom alert message</h2>
 <p>Here we create an alert message to send out via text message. You might also
 decide to include a picture with your alert message, maybe a screenshot of the
@@ -61,10 +50,9 @@ application when the crash happened?</p>
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#format">String.Format</a></li>
 </ul>
 </div><div data-file="src/main/java/utils/Repository.java" data-highlight="22" class="step"><h2 id="reading-the-admins-from-the-json-file">Reading the admins from the JSON file</h2>
-<p>Next we read the admins from our JSON file. We&#39;re relying on
-<a href="https://github.com/google/gson">Gson</a> Java library to convert a
-JSON into Java Objects, to do it we use the method <code>fromJson</code> to read all
-the objects.</p>
+<p>Next we read the admins from our JSON file. We&#39;re relying on the
+<a href="https://github.com/google/gson">Gson</a> Java library to convert our JSON
+text file into <code>Administrator</code> objects, which we created in our application.</p>
 <hr>
 <p><strong>See Also:</strong></p>
 <ul>
@@ -75,8 +63,7 @@ the objects.</p>
 <p>There are the three parameters needed to <a href="https://www.twilio.com/docs/quickstart/java/sms/sending-via-rest">send an
 SMS</a>
 using the <a href="https://www.twilio.com/docs/api/rest">Twilio REST API</a>:
-<code>From</code>, <code>To</code>, <code>Body</code>, and <code>MediaUrl</code>. After the message is sent, we print out the
-phone number we&#39;re texting. <a href="https://www.twilio.com/help/faq/sms/is-mms-supported-for-all-carriers-in-us-and-canada">US phone
+<code>From</code>, <code>To</code>, and <code>Body</code>. <a href="https://www.twilio.com/help/faq/sms/is-mms-supported-for-all-carriers-in-us-and-canada">US and Canadian phone
 numbers</a>
 can also send an image with the message.</p>
 <hr>
