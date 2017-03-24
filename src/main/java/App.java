@@ -1,7 +1,9 @@
+import logging.LoggingFilter;
 import models.Administrator;
 import utils.Client;
 import utils.Repository;
 
+import static spark.Spark.afterAfter;
 import static spark.Spark.exception;
 import static spark.Spark.get;
 
@@ -27,5 +29,8 @@ public class App {
 
             response.body("Something unexpected happened. Keep calm, administrators were notified.");
         });
+
+        // Log all requests and responses
+        afterAfter(new LoggingFilter());
     }
 }
