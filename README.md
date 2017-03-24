@@ -17,14 +17,16 @@ Use Twilio to send SMS alerts so that you never miss a critical issue.
 
 2. Export the environment variables:
 
-   You can find the AccountSID and the AuthToken at https://www.twilio.com/user/account/settings.
+   You can find the AccountSID and the AuthToken in your 
+   [Twilio Console](https://www.twilio.com/console).
 
    ```bash
    export TWILIO_ACCOUNT_SID=your account sid
    export TWILIO_AUTH_TOKEN=your auth token
    ```
 
-   The Twilio Phone Number can be found at https://www.twilio.com/user/account/phone-numbers/incoming.
+   The Twilio Phone Number can be found in the 
+   [Phone Numbers section of the Twilio Console](https://www.twilio.com/console/phone-numbers/incoming).
 
    ```bash
    export TWILIO_PHONE_NUMBER=your Twilio phone number
