@@ -16,11 +16,10 @@ public class App {
         // http://sparkjava.com/documentation.html#exception-mapping
         exception(Exception.class, (e, request, response) -> {
             String message = String.format("It appears the server is having Exception: %s " +
-                    "Go to: http://newrelic.com for more details. " +
-                    "Image URL: http://goo.gl/ObTXdX",
+                    "Help from a friendly bot is on the way. ",
                     e.getMessage());
 
-            String mediaUrl = "http://goo.gl/ObTXdX";
+            String mediaUrl = "https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg";
 
             Administrator[] administrators = new Repository().getAdministrators();
             for(Administrator administrator : administrators) {
